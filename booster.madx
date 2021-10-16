@@ -1,0 +1,225 @@
+OPTION, -ECHO;
+ASSIGN, ECHO="Echo.txt";
+
+!----------------------------BEAM PARAMETERS---------------------------------
+M0p=0.9382796;
+T=0.578;
+Nb=3.0e9;
+A=197;
+Z=31;
+
+gamma=(T+M0p)/M0p;               // 1.616021067
+betta=sqrt(1-1/gamma^2);         // 0.785545568
+
+EmitX=1.0E-6;
+EmitZ=1.0E-6;
+
+SigmaP=1.0E-2;
+Lb=0.60;
+
+P=M0p*betta*gamma*A;                  // momentum of vhole ion [Gev/c]   P=234.6480238 ( momentum per nucleon [GeV/c/nucl]   1.19110672)
+
+// P2=sqrt(2*M0p*T+T^2)*A;           // P2=P
+Bro=P/Z/clight*10^9;                       // magnetic regidity of the ring [T*m]  Bro=25.24843734
+
+K0check=1/Bro*1.80273421;
+//value, K0check;                                     // check if K0check==K0dip        i. e.   ANGLE/L == 1/Bro*By
+!----------------INITIALIZATION OF BEAM PARAMETERS------------------------------------
+
+BEAM,
+PARTICLE=ion,
+MASS=M0p*A,                              //    vhole ion rest mass in [GeV]
+CHARGE=Z,                                  //    vhole ion charge [elementary charges]
+ENERGY=(M0p+T)*A,                     //    the total energy per ion in [GeV]
+//   PC=M0p*betta*gamma*A,             //    vhole ion momentum in [GeV/c]
+EX=EmitX,                                   //    in [Rad*m]
+EY=EmitZ,                                   //    in [Rad*m]
+SIGT=Lb,                                    //    bunch length in [m]
+SIGE=SigmaP,                              //    relative energy spread sigma(E)/E in [1]
+NPART=Nb;
+
+!--------------------RING ELEMENTS' PARAMETERS--------------------------------
+Ndip = 40;                                   // Number of dipoles in the ring
+!                    Bdip*Ldipeff*Ndip=2*PI*Bro
+
+Ldip = 2.2;                                            //  Effective length of this magnet [m]
+Bdip = 2*PI*Bro/Ldip/Ndip;                      //  Magnetic field in dipoles [T]    = 1.80273421
+Fi = Bdip*Ldip/Bro;                                 //  Bending angle of dipole magnet [rad] basing on effective length  = 0.1570796327
+
+Ldip_iron = 2.142;                                // Length of the sbend-magnet (iron length) [m]
+
+
+qF: QUADRUPOLE,  L=      0.47,  K1=0.8338714084;
+qD: QUADRUPOLE,  L=      0.47,  K1=-0.853123689;
+
+bH: SBEND,  L=       2.2,  ANGLE=0.1570796327,   K0=0.1570796327/2.2
+    ,  E1=         0 ,  HGAP=    0.0375, FINT=0.5
+    ,  E2=         0 ,  HGAP=    0.0375, FINTX=0.5;
+
+sf: SEXTUPOLE, L=      0.32, K2= 4.20394;
+sd: SEXTUPOLE, L=      0.32, K2= -3.09715;
+
+o_drift: DRIFT, L=         7 ;
+
+//o1: DRIFT, L=      0.85 ;
+o2: DRIFT, L=      0.95 ;
+o3: DRIFT, L=       0.7 ;
+o4: DRIFT, L=     0.265 ;
+o5: DRIFT, L=     0.315 ;
+
+
+diBPM: DRIFT, L=      0.32/2;
+iBPM: MONITOR ;
+
+xy_cor: KICKER;
+
+o_drift2: DRIFT, L=7/2;
+
+//-----------------------------------optics x_cor installed near BPMs------------------------
+
+QUADRANT: LINE=(o_drift2, qD, o4, diBPM, iBPM, xy_cor, diBPM, o4, qF,
+o2, bH, o3, bH, o2, qD, o4, diBPM, iBPM, xy_cor, diBPM, o4, qF, o5, sf, o5, bH, o3, bH,
+o2, qD, o4, diBPM, iBPM, xy_cor, diBPM, o4, qF, o2, bH, o3, bH, o5, sd, o5, qD, o4,
+diBPM, iBPM, xy_cor, diBPM, o4, qF, o2, bH, o3, bH, o2, qD, o4, diBPM, iBPM, xy_cor, diBPM, o4, qF, o2,
+bH, o3, bH, o2, qD, o4, diBPM, iBPM, xy_cor, diBPM, o4, qF, o_drift2);
+
+// qF moved from begin of line to end; line starting point moved from the begin of long drift to middle of long drift (o_drift2) (in comparison to OptiM file)
+
+
+MACHINE: LINE=(QUADRANT, QUADRANT, QUADRANT, QUADRANT);
+
+!--------------------------------------Ring_Optics------------------------------
+USE, period=MACHINE;
+
+
+!-------------Chromaticity correction--------
+/*
+QPRIME = -0.01;               // Target chromaticity
+
+match,sequence=MACHINE;
+    vary, name=sf-> K2, step=0.00001;
+    vary, name=sd-> K2, step=0.00001;
+
+    global,sequence=MACHINE,DQ1=QPRIME;
+    global,sequence=MACHINE,DQ2=QPRIME;
+    Lmdif, calls=100, tolerance=1.0e-21;
+endmatch;
+*/
+
+TWISS, chrom=true, file="Ring-data.txt", table=twiss_data;
+//PLOT, table=twiss_data, HAXIS=S, VAXIS1=BETX,BETY, VAXIS2=DX,DY, SPLINE, COLOUR=100, interpolate, RANGE=#S/#E, FILE="QUADRANT_OPTICS", HMAX=210.96/4.0;
+//stop;
+!-----------------END---correction of chromaticity & plotting ring optics betas & disp--------------------
+
+i=0;
+imax = 5;
+while (i < imax)
+{
+!-----------------SET---ERRORS----------------------------------------------
+SELECT, FLAG = error, clear;
+SELECT, FLAG = error, CLASS = sbend;         // Set "field of activity"  of EALIGN and EFCOMP
+
+EOPTION, seed = 123456789, add=true;                 // Selects a particular sequence of random values (values does not changes from run to run of the program) set ADDition of errors in each EFCOMP and EALIGN to errors set in previous EFCOMP and EALIGN commands
+
+//Relative errors given relatively to dipole (B0) component of magnetic field
+
+err_rel0 := 5.0e-4* gauss();                 // Relative error of dipole component of magnetic field (spread of dipoles' effectife length)
+err_rel1 :=5.0e-3* gauss();                                      // Relative error of quadrupole component of magnetic field
+err_rel2 :=0;                                      // Relative error of sextupole componetnt of magnetic field
+err_rel3 :=0;                                      // Relative error of octupole component of magnetic field
+
+radi=0.030;            // Reference radius where above relative errors are specified
+
+EFCOMP, order = 0, radius = radi, DKNR:={err_rel0, err_rel1, err_rel2, err_rel3};
+
+//Effective length spread set only to dipoles
+//alignment errors: x,y- shifts and rotation around longintudinal axis set to dipoles and quads
+
+SELECT, FLAG = error, CLASS = quadrupole;
+
+EALIGN, dx := 3.0e-4*gauss(), dy := 3.0e-4*gauss(), dpsi := 5.0e-4*gauss();
+
+
+// Set random (gauss distributed) x,y-direction misalignment of quads angle of misalignment of sbends & quads to longintudinal axis in range [-10^-4; +10^-4] meters + Set random angle of misalignment of sbends & quads to longintudinal axis in range [-10^-4; +10^-4] Rad
+
+i=i+1;
+}
+
+TWISS, chrom=true, file="Ring-data.txt", table=SUMM;
+
+//PLOT, table=twiss_data, file=orbit_hor.ps, haxis=s, vaxis=x;
+//PLOT, table=twiss_data, file=orbit_ver.ps, haxis=s, vaxis=y;
+
+//stop;
+
+!------------------END---set of errors---------------------------------------------
+
+
+//----------------------------Orbit correction-----------------------------------------------------------------
+usekick, status=off, class=kicker;
+usekick, status=on, class=kicker, range=xy_cor[1]/xy_cor[2];
+
+//CORRECT, plane = x, mode = lsq, clist = corr_x.txt, mlist = bpm_x.txt;            // Orbit correction in x-plane
+CORRECT, plane = y, mode = lsq, clist = corr_y.txt, mlist = bpm_y.txt;            // Orbit correction in y-plane
+
+TWISS, chrom=true, table=twiss_data;
+//PLOT, table=twiss_data, file=orbit_hor_corr.ps, haxis=s, vaxis=x, vmin=-0.01, vmax=+0.01;
+PLOT, table=twiss_data, file=orbit_ver_corr.ps, haxis=s, vaxis=y, vmin=-0.015, vmax=+0.015;
+
+stop;
+//-----------------END---orbit correction----------------------------------------------------------------------
+
+
+
+!--------------------------------------DA-x-y-----------------------------------
+ptc_create_universe;
+ptc_create_layout,model=2,method=6,nst=3, exact;
+ptc_align;                                                                          // !!!!!!!!!!!!!!!!!!!!!!!!!!!        apply MAD-X elements alignment errors to the current PTC layout, takes no attributes
+
+ptc_setswitch, fringe = true;
+
+!------------------------------DA-calc-start --------------------
+
+create, table = track_init_data_table, column = x0, y0;              ! create table to write start x0, y0 for successfully (till to the final turn) tracked particles
+create, table = track_init_data_x, column = x0;                        ! create table to write start x0,  for successfully (till to the final turn) tracked particles
+create, table = track_init_data_y, column = y0;                        ! create table to write start y0,  for successfully (till to the final turn) tracked particles
+
+nturns = 5000;                                                                    ! set number of turns for tracking
+end_flag := 0;                                                                     ! set end_flag wich =nturns if particle tracked to the end (if not ned_flag < nturns)
+
+r0 = 0.005;                                                                         ! r-counter for DA calc in (x,y)-plane for start particles; increases from min to r0max with r0step during calc
+r0max = 0.06;                                                                     ! set max value for r-counter [m]
+r0step = 0.005;                                                                   ! set step of increase of r-counter [m]
+d_tetta = 15.0;                                                                     ! set step of increase of angle-counter at (x,y)-plane
+
+while (r0 < r0max)
+{
+	tetta = 0;
+	while (tetta < 91)
+	{
+
+		x0 := r0 * cos (pi / 180 * tetta);
+		y0 := r0 * sin (pi / 180 * tetta);
+
+		ptc_start, X=x0, PX=0.0, Y=y0, PY=0.0, PT=0.0;
+		ptc_track, icase=5, closed_orbit, turns=nturns, dump, onetable=true;
+		ptc_track_end;
+
+		end_flag := table(tracksumm, turn, 2);
+		if (end_flag == nturns) 
+		{fill, table = track_init_data_table; fill, table = track_init_data_x; fill, table = track_init_data_y;}
+
+		tetta = tetta + d_tetta;
+	};
+	r0 = r0 + r0step;
+};
+
+ptc_end;
+
+write, table = track_init_data_table, file = "track_init_data.txt";
+write, table = track_init_data_x, file = "track_init_x.txt";
+write, table = track_init_data_y, file = "track_init_y.txt";
+
+//PLOT, file="xDx", table=trackone, haxis=x, vaxis=px,  colour=100, multiple, symbol=3, style=0, hmin=-0.1, hmax=+0.1, vmin=-0.02, vmax=+0.02;
+
+stop;
