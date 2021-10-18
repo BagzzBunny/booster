@@ -41,7 +41,7 @@ def parser(file):
             if '  ' in line:
                 new_line = ''
                 for i in range(len(line)-1):
-                    if line[i] + line[i+1] == ' ':
+                    if line[i] + line[i+1] == '  ':
                         continue
                     else:
                         new_line += line[i]
