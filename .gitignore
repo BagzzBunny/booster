@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 clear_booster.txt
+Echo.txt
+Ring-data.txt
