@@ -3,9 +3,7 @@ def parser(file):
         lines = f.readlines()    
     with open("clear_booster.txt", 'w') as clear_booster:
         comment = False
-        k = 0
         for i, line in enumerate(lines):
-            k += 1
             if i < len(lines):               
                 if line.isspace(): continue
 
