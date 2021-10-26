@@ -1,7 +1,7 @@
 from ielement import IElement
 
 
-class Quadruple(IElement):
+class Sbend(IElement):
     def calc_M(self):
         pass
 
