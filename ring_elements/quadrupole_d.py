@@ -2,7 +2,7 @@ from ielement import IElement
 import numpy as np
 
 
-class QuadrupleD(IElement):
+class QuadrupoleD(IElement):
     def calc_M(self, L, K):
         l_root_k = L*np.sqrt(K)
         M = np.matrix(
@@ -15,6 +15,3 @@ class QuadrupleD(IElement):
             ]
         )
         return M
-
-    def calc_b(self):
-        pass

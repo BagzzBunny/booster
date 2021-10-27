@@ -14,7 +14,3 @@ class Corrector(IElement):
             ]
         )
         return M
-
-    def calc_b(self, L, phi, psi):
-        b = np.array([0.5 * L * phi], [phi], [0.5 * L * psi][psi], [0])
-        return b

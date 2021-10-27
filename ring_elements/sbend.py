@@ -14,6 +14,3 @@ class Sbend(IElement):
                 [0, 0, 0, 0, 1]
             ]
         )
-
-    def calc_b(self):
-        pass

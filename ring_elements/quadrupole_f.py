@@ -3,7 +3,7 @@ from ielement import IElement
 import numpy as np
 
 
-class QuadrupleF(IElement):
+class QuadrupoleF(IElement):
     def calc_M(self, L, K):
         l_root_k = L*np.sqrt(K)
         M = np.matrix(
@@ -16,6 +16,3 @@ class QuadrupleF(IElement):
             ]
         )
         return M
-
-    def calc_b(self):
-        pass
