@@ -1,5 +1,4 @@
 from drift import Drift
-from cpymad.madx import Madx
 import sys
 
 
