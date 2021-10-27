@@ -4,7 +4,8 @@ import numpy as np
 
 
 class QuadrupoleF(IElement):
-    def calc_M(self, L, K):
+    @classmethod
+    def calc_M(cls, L, K):
         l_root_k = L*np.sqrt(K)
         M = np.matrix(
             [
@@ -16,3 +17,14 @@ class QuadrupoleF(IElement):
             ]
         )
         return M
+
+    @classmethod
+    def calc_b(cls):
+        b = np.array([0], [0], [0], [0], [0])
+        return b
+
+    @classmethod
+    def calc_dynamics(cls, **kwargs):
+        m = cls.calc_M(kwargs['L'], kwargs['K'])
+        b = cls.calc_b()
+        return m, b

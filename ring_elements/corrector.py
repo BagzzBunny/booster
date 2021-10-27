@@ -3,8 +3,9 @@ import numpy as np
 
 #also sextuple
 class Corrector(IElement):
-    def calc_M(self, L):
-        M = np.matrix(
+    @classmethod
+    def calc_M(cls, L, *args):
+        m = np.matrix(
             [
                 [1, L, 0, 0, 0],
                 [0, 1, 0, 0, 0],
@@ -13,8 +14,15 @@ class Corrector(IElement):
                 [0, 0, 0, 0, 1],
             ]
         )
-        return M
+        return m
 
-    def calc_b(self, L, phi, psi):
-        b = np.array([0.5 * L * phi], [phi], [0.5 * L * psi][psi], [0])
+    @classmethod
+    def calc_b(cls, L, phi = 0, psi = 0):
+        b = np.array([0.5 * L * phi], [phi], [0.5 * L * psi], [psi], [0])
         return b
+
+    @classmethod
+    def calc_dynamics(cls, **kwargs):
+        m = cls.calc_M(kwargs['L'])
+        b = cls.calc_b(kwargs['L'])
+        return m, b

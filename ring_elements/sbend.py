@@ -3,7 +3,8 @@ import numpy as np
 
 
 class Sbend(IElement):
-    def calc_M(self, L, angle):
+    @classmethod
+    def calc_M(cls, L, angle):
         R0 = L / angle
         M = np.matrix(
             [
@@ -14,3 +15,14 @@ class Sbend(IElement):
                 [0, 0, 0, 0, 1]
             ]
         )
+
+    @classmethod
+    def calc_b(cls):
+        b = np.array([0], [0], [0], [0], [0])
+        return b
+
+    @classmethod
+    def calc_dynmics(cls, **kwargs):
+        m = cls.calc_M(kwargs['L'], kwargs['ANGLE'])
+        b = cls.calc_b()
+        return m, b
