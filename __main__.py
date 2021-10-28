@@ -4,7 +4,6 @@ from ring_elements.quadrupole_f import QuadrupoleF as qf
 from ring_elements.corrector import Corrector as corr
 from ring_elements.sbend import Sbend
 from madx_parser import Parser
-import sys
 import csv
 
 
@@ -24,10 +23,11 @@ with open ('Ring-data.csv', newline = '') as csvfile:
         print(row['NAME'])
         if row['KEYWORD'] == 'QUADRUPOLE':
             m, b = ring_elements[row['NAME']](L = float(row['L']), K = float(row['K1L']) / float(row['L']))
+            print(m)
+            print(b)
+            print('\n')
         elif row['KEYWORD'] not in ring_elements:
             continue
         else:
             m, b = ring_elements[row['KEYWORD']](L = float(row['L']), ANGLE = float(row['ANGLE']))        
-        print(m)
-        print(b)
-        print('\n')
+        
