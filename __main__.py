@@ -8,8 +8,8 @@ import sys
 import csv
 
 
-Parser.generate_ring_data('booster.madx')
-Parser.create_teable()
+#Parser.generate_ring_data('booster.madx')
+#Parser.create_teable()
 ring_elements = {
     'DRIFT': Drift.calc_dynamics,
     'QD': qd.calc_dynamics,
@@ -21,8 +21,13 @@ ring_elements = {
 with open ('Ring-data.csv', newline = '') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        kwargs = {
-            'L': row['L'],           
-        }
+        print(row['NAME'])
         if row['KEYWORD'] == 'QUADRUPOLE':
-            pass
+            m, b = ring_elements[row['NAME']](L = float(row['L']), K = float(row['K1L']) / float(row['L']))
+        elif row['KEYWORD'] not in ring_elements:
+            continue
+        else:
+            m, b = ring_elements[row['KEYWORD']](L = float(row['L']), ANGLE = float(row['ANGLE']))        
+        print(m)
+        print(b)
+        print('\n')
