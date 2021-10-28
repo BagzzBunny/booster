@@ -18,7 +18,7 @@ class Corrector(IElement):
 
     @classmethod
     def calc_b(cls, L, phi = 0, psi = 0):
-        b = np.array([0.5 * L * phi, phi, 0.5 * L * psi, psi, 0])
+        b = np.matrix([0.5 * L * phi, phi, 0.5 * L * psi, psi, 0])
         return b.T
 
     @classmethod

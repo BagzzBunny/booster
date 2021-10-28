@@ -20,7 +20,7 @@ class QuadrupoleF(IElement):
 
     @classmethod
     def calc_b(cls):
-        b = np.array([0, 0, 0, 0, 0])
+        b = np.matrix([0, 0, 0, 0, 0])
         return b.T
 
     @classmethod
