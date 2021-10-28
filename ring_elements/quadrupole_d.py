@@ -19,8 +19,8 @@ class QuadrupoleD(IElement):
 
     @classmethod
     def calc_b(cls):
-        b = np.array([0], [0], [0], [0], [0])
-        return b
+        b = np.array([0, 0, 0, 0, 0])
+        return b.T
 
     @classmethod
     def calc_dynamics(cls, **kwargs):
