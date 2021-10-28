@@ -1,4 +1,3 @@
-import sys
 from .ielement import IElement
 import numpy as np
 

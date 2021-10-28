@@ -1,4 +1,4 @@
-from ielement import IElement
+from .ielement import IElement
 import numpy as np
 
 #also sextuple
