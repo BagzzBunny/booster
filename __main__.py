@@ -3,7 +3,7 @@ from ring_elements.quadrupole_d import QuadrupoleD as qd
 from ring_elements.quadrupole_f import QuadrupoleF as qf
 from ring_elements.corrector import Corrector as corr
 from ring_elements.sbend import Sbend
-from madx_parser import Parser
+from utils.madx_parser import Parser
 import csv
 
 
