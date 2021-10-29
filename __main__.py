@@ -7,8 +7,10 @@ from madx_parser import Parser
 import csv
 
 
-#Parser.generate_ring_data('booster.madx')
-#Parser.create_teable()
+def generate_ring_data_table():
+    Parser.generate_ring_data('booster.madx')
+    Parser.create_teable()
+
 ring_elements = {
     'DRIFT': Drift.calc_dynamics,
     'QD': qd.calc_dynamics,
