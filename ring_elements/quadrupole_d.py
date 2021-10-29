@@ -1,11 +1,13 @@
-from ielement import IElement
+from .ielement import IElement
 import numpy as np
 
 
-class QuadrupleD(IElement):
-    def calc_M(self, L, K):
+class QuadrupoleD(IElement):
+    @classmethod
+    def calc_M(cls, L, K):
+        K = np.absolute(K)
         l_root_k = L*np.sqrt(K)
-        M = np.matrix(
+        m = np.matrix(
             [
                 [np.cosh(l_root_k), np.sinh(l_root_k)/np.sqrt(K), 0, 0, 0],
                 [np.sqrt(K)*np.sinh(l_root_k), np.cosh(l_root_k), 0, 0, 0],
@@ -14,7 +16,15 @@ class QuadrupleD(IElement):
                 [0, 0, 0, 0, 1]
             ]
         )
-        return M
+        return m
 
-    def calc_b(self):
-        pass
+    @classmethod
+    def calc_b(cls):
+        b = np.matrix([0, 0, 0, 0, 0])
+        return b.T
+
+    @classmethod
+    def calc_dynamics(cls, **kwargs):
+        m = cls.calc_M(kwargs['L'], kwargs['K'])
+        b = cls.calc_b()
+        return m, b

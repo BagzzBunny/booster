@@ -1,10 +1,12 @@
 from numpy.ma.core import sqrt
-from ielement import IElement
+from .ielement import IElement
 import numpy as np
 
 
-class QuadrupleF(IElement):
-    def calc_M(self, L, K):
+class QuadrupoleF(IElement):
+    @classmethod
+    def calc_M(cls, L, K):
+        K = np.absolute(K)
         l_root_k = L*np.sqrt(K)
         M = np.matrix(
             [
@@ -17,5 +19,13 @@ class QuadrupleF(IElement):
         )
         return M
 
-    def calc_b(self):
-        pass
+    @classmethod
+    def calc_b(cls):
+        b = np.matrix([0, 0, 0, 0, 0])
+        return b.T
+
+    @classmethod
+    def calc_dynamics(cls, **kwargs):
+        m = cls.calc_M(kwargs['L'], kwargs['K'])
+        b = cls.calc_b()
+        return m, b
