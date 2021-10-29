@@ -20,12 +20,8 @@ ring_elements = {
 with open ('Ring-data.csv', newline = '') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        print(row['NAME'])
         if row['KEYWORD'] == 'QUADRUPOLE':
             m, b = ring_elements[row['NAME']](L = float(row['L']), K = float(row['K1L']) / float(row['L']))
-            print(m)
-            print(b)
-            print('\n')
         elif row['KEYWORD'] not in ring_elements:
             continue
         else:
