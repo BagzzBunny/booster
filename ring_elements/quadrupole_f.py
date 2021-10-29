@@ -6,6 +6,7 @@ import numpy as np
 class QuadrupoleF(IElement):
     @classmethod
     def calc_M(cls, L, K):
+        K = np.absolute(K)
         l_root_k = L*np.sqrt(K)
         M = np.matrix(
             [
