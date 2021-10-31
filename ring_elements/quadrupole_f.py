@@ -24,8 +24,10 @@ class QuadrupoleF(IElement):
         b = np.matrix([0, 0, 0, 0, 0])
         return b.T
 
+    # думаю что от методов calc_dynamics вообще можно избавиться
+    # он мне не очень нарвится - фактически одинаковый у всех классов
     @classmethod
-    def calc_dynamics(cls, **kwargs):
-        m = cls.calc_M(kwargs['L'], kwargs['K'])
+    def calc_dynamics(cls, **kwargs): 
+        m = cls.calc_M(kwargs['L'], kwargs['K']) 
         b = cls.calc_b()
         return m, b

@@ -27,8 +27,11 @@ class Solver():
             rows = csv.DictReader(csvfile)
             for row in rows:
                 if row['KEYWORD'] == 'QUADRUPOLE':
+                    # кажется, что логику того, как парсить параметры того или иного элемента лучше перенести в конкретные классы элементов
+                    # если логика одинаковая, сделать ее в общем предке
+                    # тогда можно будет уйти от дублирования которой происходит здесь - строки 33 и 34 дублируются в 38 и 39. и не понадобится if else. 
                     m, b = self.ring_elements[row['NAME']](L = float(row['L']), K = float(row['K1L']) / float(row['L']))
-                    x = m * trajectory[i] + b
+                    x = m * trajectory[i] + b 
                 elif row['KEYWORD'] not in self.ring_elements:
                     continue
                 else:
