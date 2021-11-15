@@ -19,8 +19,7 @@ class Solver():
             }
     
     def solve(self, x):
-        trajectory = []
-        trajectory.append(x)
+        trajectory = [x]
         i = 0
         x = np.matrix([0, 0, 0, 0, 0])
         with open ('Ring-data.csv', newline = '') as csvfile:

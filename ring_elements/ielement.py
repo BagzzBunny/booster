@@ -9,7 +9,3 @@ class IElement(ABC):
     @abstractmethod
     def calc_b(self):
         pass
-
-    @abstractmethod
-    def calc_dynamics(self):
-        pass
