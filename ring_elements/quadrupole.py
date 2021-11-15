@@ -5,8 +5,8 @@ import numpy as np
 class Quadrupole(IElement):
 
     def __init__(self, row):
-        self.L = row['L']
-        self.K = row['K']
+        self.L = float(row['L'])
+        self.K = float(row['K1L']) / float(row['L'])
 
     def calc_M(self):
         if self.K < 0:

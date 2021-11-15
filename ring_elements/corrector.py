@@ -3,9 +3,9 @@ import numpy as np
 
 #also sextuple
 class Corrector(IElement):
-    
+
     def __init__(self, row):
-        self.L = row['L']
+        self.L = float(row['L'])
         self.phi = 0
         self.psi = 0
     

@@ -5,8 +5,8 @@ import numpy as np
 class Sbend(IElement):
 
     def __init__(self, row):
-        self.L = row['L']
-        self.angle = row['ANGLE']
+        self.L = float(row['L'])
+        self.angle = float(row['ANGLE'])
 
     def calc_M(self):
         r0 = self.L / self.angle
