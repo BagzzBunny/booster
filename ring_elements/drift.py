@@ -5,7 +5,7 @@ import numpy as np
 class Drift(IElement):
 
     def __init__(self, row):
-        self.L = float(row['L'])
+        super().__init__(row)
 
     def calc_M(self):
         m = np.matrix(

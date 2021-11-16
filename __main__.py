@@ -15,3 +15,4 @@ solver = Solver()
 x0 = np.matrix([0, 1, 0, 1, 0])
 x0 = x0.T
 trajectory = solver.solve(x0)
+print(trajectory)

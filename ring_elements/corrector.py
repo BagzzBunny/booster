@@ -5,7 +5,7 @@ import numpy as np
 class Corrector(IElement):
 
     def __init__(self, row):
-        self.L = float(row['L'])
+        super().__init__(row)
         self.phi = 0
         self.psi = 0
     
