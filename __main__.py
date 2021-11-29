@@ -3,10 +3,13 @@ from utils.solver import Solver
 from utils.table_creator import TableCreator as td
 import csv
 import numpy as np
+from cpymad.madx import Madx
 
 
 def generate_ring_data_table():
-    Parser.generate_ring_data('madx_files_folder\\Boo_Seq_bpm_steer\\main.madx')
+    madx = Madx(command_log="log.madx")
+    madx.call('madx_files_folder/Boo_Seq_bpm_steer/main.madx')
+#    Parser.generate_ring_data('madx_files_folder/Boo_Seq_bpm_steer/main.madx')
 #    Parser.create_teable()
 
 

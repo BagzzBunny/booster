@@ -1,36 +1,88 @@
 option, -warn, -debug, -info, -echo;
+// option, warn, debug, info, -echo;
+// Option,  warn, info, echo;
 ASSIGN, ECHO = "Echo.txt";
 
 title, s='MAD-X sequence test';
 
-
+// define beam parameters
 
 call, file='./boo_beam_inj.mad';
 
-call, file='./boo_steer_bpm.opt';		 
+// ring elements' parameters
 
+// Option,  warn, info, echo;
+call, file='./boo_steer_bpm.opt';		// './boo.opt'; // './boo_sup_loop.opt'; 
 
-call, file='./boo_seq_steer_bpm.str';
+// stop;
 
+// ring optics
 
+call, file='./boo_seq_steer_bpm.str';	// './boo_seq.str'; // './boo_sup_seq.str'
+
+// use, period=gensup;
 use, period=booster;
 
 option, -echo;
+
+// set errors (int+allign)
+
  call, file='./error.mad';
+
+// const bSteer = 0.01;
+
+// ST1.1->hkick := bSteer / Bro;
+// call, file= './Steerer_data.mad';
 
 select, flag=twiss, clear;
 select, flag=twiss, column=name, s, betx, alfx, mux, dx, dpx, bety, alfy, muy, x, y;
-twiss, sequence=booster, file=booster_twiss_tot_err.txt, chrom, save;
+twiss, sequence=booster, file=booster_twiss_tot_err.txt, chrom, save;					// write Twiss 
 select, flag=twiss, clear;
 select, flag=twiss, column=name, KEYWORD, s, k0l, k1l, k2l, k2sl, k3l, k5l, hkick, vkick;
-twiss, sequence=booster, file=booster_magnets_tot_err.txt, chrom, save;
+twiss, sequence=booster, file=booster_magnets_tot_err.txt, chrom, save;					// write Magnets parameters
+// stop;
+/*
+select, flag=twiss, clear;
+select, flag=twiss, class=hmonitor;
+select, flag=twiss, class=vmonitor, column=name, KEYWORD, s, x, y;
+twiss, sequence=booster, file=bpm_data.dat, chrom, save;							// write BPM data
+*/
 
 select, flag=twiss, clear;
 select, flag=twiss, class=kicker;
 select, flag=twiss, class=hmonitor;
 select, flag=twiss, class=vmonitor, column=name, KEYWORD, s, x, y, hkick, vkick;
-twiss, sequence=booster, file=bpm_steer_data_tot_err.dat, chrom, save;
+twiss, sequence=booster, file=bpm_steer_data_tot_err.dat, chrom, save;						// write data for R-matrix
 
  stop;
+
+/*
+// Plot
+setplot, post=2;
+plot, haxis=s, vaxis1=betx,bety, vaxis2=dx, colour=100, noversion, interpolate, 
+	table=twiss, title="Lattice functions in Booster", file=lat;	// plotting whole ring
+
+setplot, post=2;
+plot, haxis=s, vaxis1=betx,bety, vaxis2=dx, colour=100, spline,
+	noversion, interpolate, range=#S/#E, HMAX=210.96/4.0,
+	table=twiss, title="Lattice functions in Booster", file=lat;	// plotting quadrant
+
+removefile, file="Lattice Functions.eps";
+renamefile, file="lat01.eps", name="Lattice Functions.eps";
+
+system, 'del Lattice_Functions.eps';
+system, 'ren lat01.eps Lattice_Functions.eps';
+
+stop;
+// twiss, sequence=booster, file=booster_twiss_ring.txt, chrom, save;
+
+set, format="15.10g";
+select, flag=save, clear;
+select, flag=save, full;
+save, sequence= gensup, booster, file=booster.seq;
+*/
+
+//PLOT, table = twiss_data, file = orbit_hor.ps, haxis = s, vaxis = x;
+//PLOT, table = twiss_data, file = orbit_ver.ps, haxis = s, vaxis = y;
 
 stop;
