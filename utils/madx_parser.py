@@ -9,7 +9,7 @@ class Parser():
     def generate_ring_data(cls, file):
         madx = Madx()
         try:
-            madx.call(file = 'booster.madx')
+            madx.call(file)
         except Exception:
             print(Exception)
         

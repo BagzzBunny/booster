@@ -1,0 +1,36 @@
+option, -warn, -debug, -info, -echo;
+ASSIGN, ECHO = "Echo.txt";
+
+title, s='MAD-X sequence test';
+
+
+
+call, file='./boo_beam_inj.mad';
+
+call, file='./boo_steer_bpm.opt';		 
+
+
+call, file='./boo_seq_steer_bpm.str';
+
+
+use, period=booster;
+
+option, -echo;
+ call, file='./error.mad';
+
+select, flag=twiss, clear;
+select, flag=twiss, column=name, s, betx, alfx, mux, dx, dpx, bety, alfy, muy, x, y;
+twiss, sequence=booster, file=booster_twiss_tot_err.txt, chrom, save;
+select, flag=twiss, clear;
+select, flag=twiss, column=name, KEYWORD, s, k0l, k1l, k2l, k2sl, k3l, k5l, hkick, vkick;
+twiss, sequence=booster, file=booster_magnets_tot_err.txt, chrom, save;
+
+select, flag=twiss, clear;
+select, flag=twiss, class=kicker;
+select, flag=twiss, class=hmonitor;
+select, flag=twiss, class=vmonitor, column=name, KEYWORD, s, x, y, hkick, vkick;
+twiss, sequence=booster, file=bpm_steer_data_tot_err.dat, chrom, save;
+
+ stop;
+
+stop;

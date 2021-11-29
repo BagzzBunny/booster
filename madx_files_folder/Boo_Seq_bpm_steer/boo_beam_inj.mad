@@ -1,0 +1,39 @@
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!------------------BEAM PARAMETERS-----------------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+M0p = NMASS;							// Nucleon Mass; earlier - proton mass = 0.9382796;
+T = 0.0032;								// Kinetic Energy GeV
+Nb = 3.0e9;
+A = 197;
+Z = 31;
+
+gamma = (T + M0p)/M0p;					// 1.003435341
+betta = sqrt(1 - 1/gamma^2);			// 0.08267671423
+
+EmitX = 1.0E-6;
+EmitZ = 1.0E-6;
+
+SigmaP = 1.0E-2;
+Lb = 0.60;
+
+P = M0p * betta * gamma * A;			// momentum of whole ion [Gev/c]   P = 15.22365501 ( momentum per nucleon [GeV/c/nucl]   1.19110672)
+
+// P2 = sqrt(2*M0p*T + T^2)*A;			// P2=P
+Bro = P/Z/clight * 10^9;				// magnetic rigidity of the ring [T*m]  Bro = 1.63808539
+
+K0check = 1/Bro * 0.1169590234;			//  Magnetic field in dipoles [T] = 0.1169590234
+// value, K0check, P, P2, Bro, T, gamma, betta, M0p;	// check if K0check == K0dip i.e. ANGLE/L == 1/Bro*By = 0.07139983305 (inj)
+
+!----------------INITIALIZATION OF BEAM PARAMETERS------------------------------------
+
+BEAM, 
+PARTICLE = ion, 
+MASS = M0p * A,							// whole ion rest mass in [GeV]
+CHARGE = Z,								// whole ion charge [elementary charges]
+ENERGY = (M0p + T) * A,					// the total energy per ion in [GeV]
+//   PC = M0p*betta*gamma*A,			// whole ion momentum in [GeV/c]
+EX = EmitX,								// in [Rad*m]
+EY = EmitZ,								// in [Rad*m]
+SIGT = Lb,								// bunch length in [m]
+SIGE = SigmaP,							// relative energy spread sigma(E)/E in [1]
+NPART = Nb;
