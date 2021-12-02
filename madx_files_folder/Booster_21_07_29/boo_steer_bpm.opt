@@ -1,0 +1,393 @@
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!----------------OPTICS' PARAMETERS----------------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// forces and other constants;
+
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!----------------CONSTANTS DEFINITION--------------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+const Ndip	= 40;					// Number of dipoles in the ring
+									// Bdip*Ldipeff*Ndip=2*PI*Bro
+const fi	= 2*pi/Ndip;			// Bending angle of dipole magnet 0.1570796327 [rad]
+const ld	= 2.2;					// Effective length of dipole magnet [m]
+const lq	= 0.47;					// Effective length of quadrupole magnet [m]
+const lm	= 0.32;					// Effective length of corrector magnet [m]
+const lbpm	= 0.265;				// BPM lenght [m]
+
+Bdip = 2 * PI * Bro/ld/Ndip;		// Magnetic field in dipoles [T]   extr = 1.80273421
+fi_pr = Bdip * ld/Bro;				// Bending angle of dipole magnet [rad] basing on effective length  = 0.1570796327
+
+k0 = fi / ld;						// Dipole strength [m-1]
+
+kqf = 0.8338712661;					// Focusing Quadrupole strength [m-2]	
+									// inj = 0.8338712661; extr = 0.8338702202
+kqd = -0.8531235971;				// Defocusing Quadrupole strength [m-2]
+									// inj = -0.8531235971; extr = -0.8531232929
+
+ksf2L = 0.0*0.32; // 4.60920108;    // Integral Focusing Sextupole strength [m-2] 		(twiss Table)
+ksd2L = -0.0*0.32; // -3.063323277;	// Integral Defocusing Sextupole strength [m-2] 	(twiss Table)
+ksf = ksf2L / lm;					// Focusing Sextupole strength [m-3] 	// 1.345248181 / 0.32;
+ksd = ksd2L / lm;					// Defocusing Sextupole strength [m-3]	// -0.9910745564 / 0.32;
+
+Rref = 0.03;                        // Referense radius for multipole errors
+// Bro=25.24843734;
+k0L := fi;
+k0 := k0L / ld;
+k1 := 1.37 / Bro;					// inj = 1.37, extr = 21.3
+K1L := K1 * Rref * lq;
+
+
+
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!----------------FLAGS DEFINITION--------------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+!----------------Quadrupole error--------------------
+
+if (Err_Quad_multipole == 1)                 
+{
+	if (t == 0.32)                          
+	{
+		call, file='./quadMulti625.txt';     
+	}
+	
+	elseif (t == 578);                       
+	{
+		call, file='./quadMulti9745.txt';    
+	}
+}
+ 
+else
+ 
+ {
+   сall, file='./quadMulti_noerr.txt';       
+ };
+ 
+ 
+ 
+if (Err_Quad == 1)                           
+{
+	if (t == 0.32)                           
+    {
+	  call, file='./L_quadr625.txt';         
+    }
+  
+  elseif (t == 578);                         
+	{
+		call, file='./L_quadr9745.txt';      
+	}
+}
+
+else
+{
+	const err_L_qd = 0 ;	
+	const err_L_qf = 0 ;	
+}; 
+
+
+
+!----------------Dipole error--------------------                              
+
+ if (Err_Dip_multipole == 1)                 
+{
+	if (t == 0.32)                           
+	{
+		call, file='./dipMulti625.txt';      
+	}
+	
+	elseif (t == 578);                       
+	{
+		call, file='./dipMulti9745.txt';     
+	}
+}
+ 
+else
+ 
+ {
+   сall, file='./dipMulti_noerr.txt';        
+ };
+ 
+ 
+ 
+  
+if (Err_Dip == 1)                            
+{
+	if (t == 0.32)                           
+    {
+	  call, file='./L_dip625.txt';           
+    }
+  
+	elseif (t == 578);                       
+	{
+		call, file='./L_dip9745.txt';        
+	}
+	
+}
+
+else
+{
+	const err_L_ma = 0 ;	
+	const err_L_mb = 0 ;	
+};
+ 
+ 
+ 
+Err(id, Cj, Rref, Kref, j,): macro={                       // definition eguations for multipoles error at differents garmonics
+	// j - index for normal (0) & skew (1) 
+	if (id == 2) {KNLid_j := Cj * Kref * 2/Rref^id;}
+	elseif (id == 1) {KNLid_j := Cj * Kref * 1/Rref^id;}
+	elseif (id == 3) {KNLid_j := Cj * Kref * 6/Rref^id;}
+	elseif (id == 5) {KNLid_j := Cj * Kref * 120/Rref^id;}
+//	value, n, Cj, Kref, KNLid.j, KNLid_j/2; // Kref
+};
+
+
+// value, fi, k0, k0L, k1L, kqd, kqf, ksf, ksd;
+
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!----------------ELEMENTS DEFINITION---------------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// coefficients of set magnets error
+// for dipole magnets
+kb1bm=1; //normal component for quadrupole
+kb2bm=1; //normal component for sextupole
+kb3bm=1; //normal component for octupole
+ka1bm=1; //skew component for quadrupole
+ka2bm=1; //skew component for sextupole
+ka3bm=1; //skew component for octupole
+
+// for quadrupole magnets
+kb2q=1; //normal component for quadrupole
+kb3q=1; //normal component for sextupole
+kb5q=1; //normal component for dodec
+ka2q=1; //skew component for quadrupole
+ka3q=1; //skew component for sextupole
+ka5q=1; //skew component for dodec
+
+
+// dipoles
+
+bm: sbend, l=ld, angle=fi, k0:=k0, e1=0, e2=0, hgap=0.0375, fint=0.5, fintx=0.5, hgap=0.0375;
+
+bH(j, ns): macro={
+	mja.ns: bm;
+	mjb.ns: bm;
+	
+//for mja.ns
+
+    err_L_ma := (BL_maj.ns/Bro - k0*ld);
+	
+	b1maErr:= b1maErr_j.ns*kb1bm;
+    b2maErr:= b2maErr_j.ns*kb2bm;
+    b3maErr:= b3maErr_j.ns*kb3bm;
+    a1maErr:= a1maErr_j.ns*ka1bm;
+    a2maErr:= a2maErr_j.ns*ka2bm;
+    a3maErr:= a3maErr_j.ns*ka3bm;
+
+	i = 1;
+	exec, err($i, b1maErr, Rref, K0L, 0);
+	exec, err($i, a1maErr, Rref, K0L, 1);
+	i = 2;
+	exec, err($i, b2maErr, Rref, K0L, 0);
+	exec, err($i, a2maErr, Rref, K0L, 1);
+	i = 3;
+	exec, err($i, b3maErr, Rref, K0L, 0);
+	exec, err($i, a3maErr, Rref, K0L, 1);
+	
+	
+	kmja.ns.err: kicker;
+	kmja.ns.err->hkick := err_L_ma/2;
+	
+	mja.ns.err: multipole, KNL = {0, KNL1_0/2, KNL2_0/2, KNL3_0/2, 0, 0}, KSL = {0, KNL1_1/2, KNL2_1/2, KNL3_1/2, 0, 0};
+	
+	
+//for mjb.ns
+
+   	err_L_mb := (BL_mbj.ns/Bro - k0*ld);
+
+	b1mbErr:= b1mbErr_j.ns*kb1bm;
+    b2mbErr:= b2mbErr_j.ns*kb2bm;
+    b3mbErr:= b3mbErr_j.ns*kb3bm;
+    a1mbErr:= a1mbErr_j.ns*ka1bm;
+    a2mbErr:= a2mbErr_j.ns*ka2bm;
+    a3mbErr:= a3mbErr_j.ns*ka3bm;
+
+	i = 1;
+	exec, err($i, b1mbErr, Rref, K0L, 0);
+	exec, err($i, a1mbErr, Rref, K0L, 1);
+	i = 2;
+	exec, err($i, b2mbErr, Rref, K0L, 0);
+	exec, err($i, a2mbErr, Rref, K0L, 1);
+	i = 3;
+	exec, err($i, b3mbErr, Rref, K0L, 0);
+	exec, err($i, a3mbErr, Rref, K0L, 1);	
+	
+	
+	kmjb.ns.err: kicker;
+	kmjb.ns.err->hkick := err_L_mb/2;
+	
+	mjb.ns.err: multipole, KNL = {0, KNL1_0/2, KNL2_0/2, KNL3_0/2, 0, 0}, KSL = {0, KNL1_1/2, KNL2_1/2, KNL3_1/2, 0, 0};
+ 
+	
+};
+
+ns := 1;					// sup number
+while (ns <= 4) {
+//	value, ns;
+	n := 2;					// cell number
+	while (n <= 6) {
+		exec, bH($n, $ns);
+		n =
+		n + 1;
+	};
+	ns = ns + 1;
+};
+
+   
+   
+// quadrupoles
+
+
+qd: quadrupole, l=lq, k1:=kqd;
+qf: quadrupole, l=lq, k1:=kqf;
+
+
+quad(j, ns): macro={
+	qdj.ns: qd;
+	qfj.ns: qf;
+	
+//for difocus
+
+    err_L_qd := (GL_qdj.ns/Bro + kqd*lq);  //	err_L_qd := kqd*lq * ((GL_qdj.ns/Bro - kqd*lq)/(kqd*lq)); !!! kqd - negative_sign !!!
+
+	b2qErr := b2qdErr_j.ns*kb2q;
+	b3qErr := b3qdErr_j.ns*kb3q;
+	b5qErr := b5qdErr_j.ns*kb5q;
+	a2qErr := a2qdErr_j.ns*ka2q;
+	a3qErr := a3qdErr_j.ns*ka3q;
+	a5qErr := a5qdErr_j.ns*ka5q;
+	
+	i = 2;
+	exec, err($i, b2qErr, Rref, K1L, 0);
+	exec, err($i, a2qErr, Rref, K1L, 1);
+	i = 3;
+	exec, err($i, b3qErr, Rref, K1L, 0);
+	exec, err($i, a3qErr, Rref, K1L, 1);
+	i = 5;
+	exec, err($i, b5qErr, Rref, K1L, 0);
+	exec, err($i, a5qErr, Rref, K1L, 1);
+	
+	qdj.ns.err: multipole, KNL = {0, -err_L_qd/2, -KNL2_0/2, -KNL3_0/2, 0, -KNL5_0/2}, KSL = {0, 0, -KNL2_1/2, -KNL3_1/2, 0, -KNL5_1/2}; // !!! kqd - negative_sign !!!
+	
+	
+//minus - defocussing quad
+	
+    err_L_qf := (GL_qfj.ns/Bro - kqf*lq);  //	err_L_qf := kqf*lq * ((GL_qfj.ns/Bro - kqf*lq)/(kqf*lq));
+		  	
+	b2qErr := b2qfErr_j.ns*kb2q;
+	b3qErr := b3qfErr_j.ns*kb3q;
+	b5qErr := b5qfErr_j.ns*kb5q;
+	a2qErr := a2qfErr_j.ns*ka2q;
+	a3qErr := a3qfErr_j.ns*ka3q;
+	a5qErr := a5qfErr_j.ns*ka5q;
+	
+	i = 2;
+	exec, err($i, b2qErr, Rref, K1L, 0);
+	exec, err($i, a2qErr, Rref, K1L, 1);
+	i = 3;
+	exec, err($i, b3qErr, Rref, K1L, 0);
+	exec, err($i, a3qErr, Rref, K1L, 1);
+	i = 5;
+	exec, err($i, b5qErr, Rref, K1L, 0);
+	exec, err($i, a5qErr, Rref, K1L, 1);
+	
+	qfj.ns.err: multipole, KNL = {0, err_L_qf/2, KNL2_0/2, KNL3_0/2, 0, KNL5_0/2}, KSL = {0, 0, KNL2_1/2, KNL3_1/2, 0, KNL5_1/2};
+	
+};
+
+ns := 1;
+while (ns <= 4) {
+//	value, ns;
+	n := 1;
+	while (n <= 6) {
+		exec, quad($n, $ns);
+		n = n + 1;		
+	};	
+	ns = ns + 1;
+};
+
+// correctors
+
+!--------------------Steerers----------------
+
+steer: kicker, l=lm, hkick:=0.0, vkick:=0.0, tilt=0;
+
+// const bSteer = 0.01;
+
+st(j, ns): macro={
+//	stj.ns: steer, hkick=(bSteer / Bro)*gauss();	
+	stj.ns: steer;
+};
+
+ns := 1;
+while (ns <= 4) {
+//	value, ns;
+	n := 1;
+	while (n <= 6) {
+		exec, st($n, $ns);
+		n = n + 1;		
+	};	
+	ns = ns + 1;
+};
+
+!-------------Chromaticity correction--------
+
+sf: sextupole, l=lm, k2:=ksf;
+sd: sextupole, l=lm, k2:=ksd;
+
+mc(ns): macro={
+	mc3.ns: sf;
+	mc4.ns: sd;
+};
+
+ns := 1;
+while (ns <= 4) {
+	exec, mc($ns);
+	ns = ns +1;
+};
+
+// Drifts
+
+o_dr: drift, l = 7;
+
+o1: drift, l = 0.85;
+o2: drift, l = 0.95;
+o3: drift, l = 0.7;
+o5: drift, l = 0.315;
+
+o_dr2: drift, l = 7/2;
+
+// BPM
+
+bpmH: hmonitor, l= lbpm;
+bpmV: vmonitor, l= lbpm;
+
+bpm(j, ns): macro={
+	bpmHj.ns: bpmH;	
+	bpmVj.ns: bpmV;
+};
+
+ns := 1;
+while (ns <= 4) {
+//	value, ns;
+	n := 1;
+	while (n <= 6) {
+		exec, bpm($n, $ns);
+		n = n + 1;		
+	};	
+	ns = ns + 1;
+};

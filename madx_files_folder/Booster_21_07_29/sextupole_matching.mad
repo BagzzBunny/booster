@@ -1,0 +1,31 @@
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!--------------SEXTUPOLE STREIGHT MATCHING---------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Target chromaticity
+
+QPRIME = -0.01;
+
+match, sequence = booster;
+	vary, name =  ksf, step = 0.00001;
+	vary, name =  ksd, step = 0.00001;
+	
+	global, sequence = booster, DQ1 = QPRIME, DQ2 = QPRIME;
+	Lmdif, calls = 100, tolerance = 1.0e-21;
+endmatch;
+
+return;
+
+/*
+QPRIME = -0.01;									// Target chromaticity
+match, sequence = booster;
+    vary, name = sf-> K2, step = 0.00001;
+    vary, name = sd-> K2, step = 0.00001;
+
+    global, sequence = booster, DQ1 = QPRIME;
+    global, sequence = booster, DQ2 = QPRIME;
+    Lmdif, calls = 100, tolerance = 1.0e-21;
+endmatch;
+
+return
+*/

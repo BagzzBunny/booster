@@ -1,0 +1,329 @@
+//sup 1
+
+// M19
+b1maErr_2.1 := 0;
+b2maErr_2.1 := 0;
+b3maErr_2.1 := 0;
+a1maErr_2.1 := 0;
+a2maErr_2.1 := 0;
+a3maErr_2.1 := 0;
+
+// M04
+b1mbErr_2.1 := 0;
+b2mbErr_2.1 := 0;
+b3mbErr_2.1 := 0;
+a1mbErr_2.1 := 0;
+a2mbErr_2.1 := 0;
+a3mbErr_2.1 := 0;
+
+// M13
+b1maErr_3.1 := 0;
+b2maErr_3.1 := 0;
+b3maErr_3.1 := 0;
+a1maErr_3.1 := 0;
+a2maErr_3.1 := 0;
+a3maErr_3.1 := 0;
+
+// M21
+b1mbErr_3.1 := 0;
+b2mbErr_3.1 := 0;
+b3mbErr_3.1 := 0;
+a1mbErr_3.1 := 0;
+a2mbErr_3.1 := 0;
+a3mbErr_3.1 := 0;
+
+// M43
+b1maErr_4.1 := 0;
+b2maErr_4.1 := 0;
+b3maErr_4.1 := 0;
+a1maErr_4.1 := 0;
+a2maErr_4.1 := 0;
+a3maErr_4.1 := 0;
+
+// M30
+b1mbErr_4.1 := 0;
+b2mbErr_4.1 := 0;
+b3mbErr_4.1 := 0;
+a1mbErr_4.1 := 0;
+a2mbErr_4.1 := 0;
+a3mbErr_4.1 := 0;
+
+// M34
+b1maErr_5.1 := 0;
+b2maErr_5.1 := 0;
+b3maErr_5.1 := 0;
+a1maErr_5.1 := 0;
+a2maErr_5.1 := 0;
+a3maErr_5.1 := 0;
+
+// M27
+b1mbErr_5.1 := 0;
+b2mbErr_5.1 := 0;
+b3mbErr_5.1 := 0;
+a1mbErr_5.1 := 0;
+a2mbErr_5.1 := 0;
+a3mbErr_5.1 := 0;
+
+// M36
+b1maErr_6.1 := 0;
+b2maErr_6.1 := 0;
+b3maErr_6.1 := 0;
+a1maErr_6.1 := 0;
+a2maErr_6.1 := 0;
+a3maErr_6.1 := 0;
+
+// M06
+b1mbErr_6.1 := 0;
+b2mbErr_6.1 := 0;
+b3mbErr_6.1 := 0;
+a1mbErr_6.1 := 0;
+a2mbErr_6.1 := 0;
+a3mbErr_6.1 := 0;
+
+//sup 2
+
+// M14
+b1maErr_2.2 := 0;
+b2maErr_2.2 := 0;
+b3maErr_2.2 := 0;
+a1maErr_2.2 := 0;
+a2maErr_2.2 := 0;
+a3maErr_2.2 := 0;
+
+// M38
+b1mbErr_2.2 := 0;
+b2mbErr_2.2 := 0;
+b3mbErr_2.2 := 0;
+a1mbErr_2.2 := 0;
+a2mbErr_2.2 := 0;
+a3mbErr_2.2 := 0;
+
+// M08
+b1maErr_3.2 := 0;
+b2maErr_3.2 := 0;
+b3maErr_3.2 := 0;
+a1maErr_3.2 := 0;
+a2maErr_3.2 := 0;
+a3maErr_3.2 := 0;
+
+// M29
+b1mbErr_3.2 := 0;
+b2mbErr_3.2 := 0;
+b3mbErr_3.2 := 0;
+b1mbErr_3.2 := 0;
+b2mbErr_3.2 := 0;
+b3mbErr_3.2 := 0;
+
+// M42
+b1maErr_4.2 := 0;
+b2maErr_4.2 := 0;
+b3maErr_4.2 := 0;
+a1maErr_4.2 := 0;
+a2maErr_4.2 := 0;
+a3maErr_4.2 := 0;
+
+// M18
+b1mbErr_4.2 := 0;
+b2mbErr_4.2 := 0;
+b3mbErr_4.2 := 0;
+a1mbErr_4.2 := 0;
+a2mbErr_4.2 := 0;
+a3mbErr_4.2 := 0;
+
+// M45
+b1maErr_5.2 := 0;
+b2maErr_5.2 := 0;
+b3maErr_5.2 := 0;
+a1maErr_5.2 := 0;
+a2maErr_5.2 := 0;
+a3maErr_5.2 := 0;
+
+// M26
+b1mbErr_5.2 := 0;
+b2mbErr_5.2 := 0;
+b3mbErr_5.2 := 0;
+a1mbErr_5.2 := 0;
+a2mbErr_5.2 := 0;
+a3mbErr_5.2 := 0;
+
+// M25
+b1maErr_6.2 := 0;
+b2maErr_6.2 := 0;
+b3maErr_6.2 := 0;
+a1maErr_6.2 := 0;
+a2maErr_6.2 := 0;
+a3maErr_6.2 := 0;
+
+// M10
+b1mbErr_6.2 := 0;
+b2mbErr_6.2 := 0;
+b3mbErr_6.2 := 0;
+a1mbErr_6.2 := 0;
+a2mbErr_6.2 := 0;
+a3mbErr_6.2 := 0;
+
+//sup 3
+
+// M07
+b1maErr_2.3 := 0;
+b2maErr_2.3 := 0;
+b3maErr_2.3 := 0;
+a1maErr_2.3 := 0; 
+a2maErr_2.3 := 0;
+a3maErr_2.3 := 0;
+
+// M40
+b1mbErr_2.3 := 0;
+b2mbErr_2.3 := 0;
+b3mbErr_2.3 := 0;
+a1mbErr_2.3 := 0;
+a2mbErr_2.3 := 0;
+a3mbErr_2.3 := 0;
+
+// M12
+b1maErr_3.3 := 0;
+b2maErr_3.3 := 0;
+b3maErr_3.3 := 0;
+a1maErr_3.3 := 0;
+a2maErr_3.3 := 0;
+a3maErr_3.3 := 0;
+
+// M37
+b1mbErr_3.3 := 0;
+b2mbErr_3.3 := 0;
+b3mbErr_3.3 := 0;
+a1mbErr_3.3 := 0;
+a2mbErr_3.3 := 0;
+a3mbErr_3.3 := 0;
+
+// M11
+b1maErr_4.3 := 0;
+b2maErr_4.3 := 0;
+b3maErr_4.3 := 0;
+a1maErr_4.3 := 0;
+a2maErr_4.3 := 0;
+a3maErr_4.3 := 0;
+
+// M31
+b1mbErr_4.3 := 0;
+b2mbErr_4.3 := 0;
+b3mbErr_4.3 := 0;
+a1mbErr_4.3 := 0;
+a2mbErr_4.3 := 0;
+a3mbErr_4.3 := 0;
+
+// M02
+b1maErr_5.3 := 0;
+b2maErr_5.3 := 0;
+b3maErr_5.3 := 0;
+a1maErr_5.3 := 0;
+a2maErr_5.3 := 0;
+a3maErr_5.3 := 0;
+
+// M32
+b1mbErr_5.3 := 0;
+b2mbErr_5.3 := 0;
+b3mbErr_5.3 := 0;
+a1mbErr_5.3 := 0;
+a2mbErr_5.3 := 0;
+a3mbErr_5.3 := 0;
+
+// M24
+b1maErr_6.3 := 0;
+b2maErr_6.3 := 0;
+b3maErr_6.3 := 0;
+a1maErr_6.3 := 0;
+a2maErr_6.3 := 0;
+a3maErr_6.3 := 0;
+
+// M15
+b1mbErr_6.3 := 0;
+b2mbErr_6.3 := 0;
+b3mbErr_6.3 := 0;
+a1mbErr_6.3 := 0;
+a2mbErr_6.3 := 0;
+a3mbErr_6.3 := 0;
+
+//sup 4
+
+// M01
+b1maErr_2.4 := 0;
+b2maErr_2.4 := 0;
+b3maErr_2.4 := 0;
+a1maErr_2.4 := 0;
+a2maErr_2.4 := 0;
+a3maErr_2.4 := 0;
+
+// M16
+b1mbErr_2.4 := 0;
+b2mbErr_2.4 := 0;
+b3mbErr_2.4 := 0;
+a1mbErr_2.4 := 0;
+a2mbErr_2.4 := 0;
+a3mbErr_2.4 := 0;
+
+// M44
+b1maErr_3.4 := 0;
+b2maErr_3.4 := 0;
+b3maErr_3.4 := 0;
+a1maErr_3.4 := 0;
+a2maErr_3.4 := 0;
+a3maErr_3.4 := 0;
+
+// M22
+b1mbErr_3.4 := 0;
+b2mbErr_3.4 := 0;
+b3mbErr_3.4 := 0;
+a1mbErr_3.4 := 0;
+a2mbErr_3.4 := 0;
+a3mbErr_3.4 := 0;
+
+// M03
+b1maErr_4.4 := 0;
+b2maErr_4.4 := 0;
+b3maErr_4.4 := 0;
+a1maErr_4.4 := 0;
+a2maErr_4.4 := 0;
+a3maErr_4.4 := 0;
+
+// M09
+b1mbErr_4.4 := 0;
+b2mbErr_4.4 := 0;
+b3mbErr_4.4 := 0;
+a1mbErr_4.4 := 0;
+a2mbErr_4.4 := 0;
+a3mbErr_4.4 := 0;
+
+// M20
+b1maErr_5.4 := 0;
+b2maErr_5.4 := 0;
+b3maErr_5.4 := 0;
+a1maErr_5.4 := 0;
+a2maErr_5.4 := 0;
+a3maErr_5.4 := 0;
+
+// M39
+b1mbErr_5.4 := 0;
+b2mbErr_5.4 := 0;
+b3mbErr_5.4 := 0;
+a1mbErr_5.4 := 0;
+a2mbErr_5.4 := 0;
+a3mbErr_5.4 := 0;
+
+// M28
+b1maErr_6.4 := 0;
+b2maErr_6.4 := 0;
+b3maErr_6.4 := 0;
+a1maErr_6.4 := 0;
+a2maErr_6.4 := 0;
+a3maErr_6.4 := 0;
+
+// M33
+b1mbErr_6.4 := 0;
+b2mbErr_6.4 := 0;
+b3mbErr_6.4 := 0;
+a1mbErr_6.4 := 0;
+a2mbErr_6.4 := 0;
+a3mbErr_6.4 := 0;
+
+return;

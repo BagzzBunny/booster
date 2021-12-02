@@ -1,0 +1,67 @@
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!--------------------PTC TRACKING------------------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// number of turns
+
+Nturns = 2^10;
+
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!-------------------DA-x START DATA----------------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ptc_create_universe;
+ptc_create_layout, model = 2, method = 6, nst = 3, exact;
+ptc_align;													// apply MAD-X elements alignment errors to the current PTC layout, takes no attributes
+
+ptc_setswitch, fringe = true;								// fringe field of elements
+ptc_start, X = 0.0, PX = 0.0, Y = 0.0, PY = 0.0, PT = 0.0;	// initial position
+
+// tracking
+
+n = 0;
+while (n < 40) {
+	ptc_start, X = 0.0010 + n * 0.001, PX = 0.0, Y = 0.0, PY = 0.0, PT = 0.0;
+	n = n + 1;
+};
+
+ptc_track, icase = 5, closed_orbit, turns = Nturns, dump, onetable = true; // , norm_out; -- print Flouque coord
+
+system, 'ren trackone xpx';									// rename output file
+
+ptc_track_end;
+ptc_end;
+
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!-------------------DA-y START DATA----------------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ptc_create_universe;
+ptc_create_layout, model = 2, method = 6, nst = 3, exact;
+ptc_align;													// apply MAD-X elements alignment errors to the current PTC layout, takes no attributes
+
+ptc_setswitch, fringe = true;								// fringe field of elements
+ptc_start, Y = 0.0, PX = 0.0, X = 0.0, PY = 0.0, PT = 0.0;	// initial position
+
+// tracking
+
+n = 0;
+while (n < 40)
+{
+ptc_start, Y = 0.0010 + n * 0.001, PX = 0.0, X = 0.0, PY = 0.0, PT = 0.0; // Y=0.030+n*0.005
+n = n + 1;
+};
+
+ptc_track, icase = 5, closed_orbit, turns = Nturns, dump, onetable = true; //, norm_out;
+
+system, 'ren trackone ypy';									// rename output file
+
+ptc_track_end;
+ptc_end;
+
+system, 'del internal_mag_pot.txt';
+
+return;
+
+//PLOT, file="xDx", table=trackone, haxis=x, vaxis=px,  colour=100, multiple, symbol=3, style=0, hmin=-0.1, hmax=+0.1, vmin=-0.02, vmax=+0.02;
+//PLOT, file="yDy", table=trackone, haxis=y, vaxis=py,  colour=100, multiple, symbol=3, style=0, hmin=-0.1, hmax=+0.1, vmin=-0.02, vmax=+0.02; 
