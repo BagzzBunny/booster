@@ -38,7 +38,7 @@ select, flag=twiss, clear;
 select, flag=twiss, column=name, s, betx, alfx, mux, dx, dpx, bety, alfy, muy, x, y;
 twiss, sequence=booster, file=booster_twiss_tot_err.txt, chrom, save;					// write Twiss 
 select, flag=twiss, clear;
-select, flag=twiss, column=name, KEYWORD, s, k0l, k1l, k2l, k2sl, k3l, k5l, hkick, vkick;
+select, flag=twiss, column=name, KEYWORD, s, l, k0l, k1l, k2l, k2sl, k3l, k5l, hkick, vkick;
 twiss, sequence=booster, file=booster_magnets_tot_err.txt, chrom, save;					// write Magnets parameters
 // stop;
 /*
