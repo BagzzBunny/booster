@@ -1,0 +1,23 @@
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!--------------TARGET Q MATCHING---------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// target Q value
+
+Qx = 4.8;
+Qy = 4.85;
+
+match, sequence = booster;
+	vary, name = kqf, step=0.00001;
+	vary, name = kqd, step=0.00001;
+	
+	global, sequence = booster, Q1 = Qx, Q2 = Qy;
+	Lmdif, calls = 100, tolerance = 1.0e-21;
+endmatch;
+
+return;
+
+/*
+vary, name = qf-> K1, step=0.00001;
+vary, name = qd-> K1, step=0.00001;
+*/

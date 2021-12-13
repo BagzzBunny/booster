@@ -3,26 +3,22 @@ import numpy as np
 
 #also sextuple
 class Drift(IElement):
-    @classmethod
-    def calc_M(cls, L):
+
+    def __init__(self, row):
+        super().__init__(row)
+
+    def calc_M(self):
         m = np.matrix(
             [
-                [1, L, 0, 0, 0],
+                [1, self.L, 0, 0, 0],
                 [0, 1, 0, 0, 0],
-                [0, 0, 1, L, 0],
+                [0, 0, 1, self.L, 0],
                 [0, 0, 0, 1, 0],
                 [0, 0, 0, 0, 1],
             ]
         )
         return m
 
-    @classmethod
-    def calc_b(cls):
+    def calc_b(self):
         b = np.matrix([0, 0, 0, 0, 0])
         return b.T
-
-    @classmethod
-    def calc_dynamics(cls, **kwargs):
-        m = cls.calc_M(kwargs['L'])
-        b = cls.calc_b()
-        return m, b

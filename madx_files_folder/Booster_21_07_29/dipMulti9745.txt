@@ -1,0 +1,331 @@
+// data from "Сводный_протокол_дип_магн_Бустера_2018_10_08.doc"
+
+//sup 1
+
+// M19
+b1maErr_2.1 := 0.33e-4;
+b2maErr_2.1 := 8.88e-4;
+b3maErr_2.1 := 0.26e-4;
+a1maErr_2.1 := 0.59e-4;
+a2maErr_2.1 := -1.09e-4;
+a3maErr_2.1 := -0.07e-4;
+
+// M04
+b1mbErr_2.1 := 0.16e-4;
+b2mbErr_2.1 := 8.57e-4;
+b3mbErr_2.1 := -0.31e-4;
+a1mbErr_2.1 := 0.69e-4;
+a2mbErr_2.1 := 0.06e-4;
+a3mbErr_2.1 := -0.13e-4;
+
+// M13
+b1maErr_3.1 := -0.42e-4;
+b2maErr_3.1 := 9.08e-4;
+b3maErr_3.1 := 0.46e-4;
+a1maErr_3.1 := -1.23e-4;
+a2maErr_3.1 := -0.10e-4;
+a3maErr_3.1 := -0.34e-4;
+
+// M21
+b1mbErr_3.1 := 0.41e-4;
+b2mbErr_3.1 := 7.90e-4;
+b3mbErr_3.1 := 0.42e-4;
+a1mbErr_3.1 := 1.91e-4;
+a2mbErr_3.1 := -0.04e-4;
+a3mbErr_3.1 := -0.22e-4;
+
+// M43
+b1maErr_4.1 := 0.07e-4;
+b2maErr_4.1 := 8.37e-4;
+b3maErr_4.1 := -0.14e-4;
+a1maErr_4.1 := -1.27e-4;
+a2maErr_4.1 := -0.22e-4;
+a3maErr_4.1 := -0.47e-4;
+
+// M30
+b1mbErr_4.1 := -0.19e-4;
+b2mbErr_4.1 := 8.33e-4;
+b3mbErr_4.1 := 0.20e-4;
+a1mbErr_4.1 := -1.28e-4;
+a2mbErr_4.1 := 0.02e-4;
+a3mbErr_4.1 := -0.78e-4;
+
+// M34
+b1maErr_5.1 := -1.37e-4;
+b2maErr_5.1 := 9.09e-4;
+b3maErr_5.1 := 0.28e-4;
+a1maErr_5.1 := -1.29e-4;
+a2maErr_5.1 := -0.09e-4;
+a3maErr_5.1 := -0.27e-4;
+
+// M27
+b1mbErr_5.1 := 0.45e-4;
+b2mbErr_5.1 := 9.66e-4;
+b3mbErr_5.1 := 0.50e-4;
+a1mbErr_5.1 := 2.12e-4;
+a2mbErr_5.1 := 0.76e-4;
+a3mbErr_5.1 := 0.20e-4;
+
+// M36
+b1maErr_6.1 := 0.62e-4;
+b2maErr_6.1 := 8.49e-4;
+b3maErr_6.1 := 0.05e-4;
+a1maErr_6.1 := -0.18e-4;
+a2maErr_6.1 := -1.08e-4;
+a3maErr_6.1 := -0.36e-4;
+
+// M06
+b1mbErr_6.1 := -0.14e-4;
+b2mbErr_6.1 := 8.77e-4;
+b3mbErr_6.1 := 0.38e-4;
+a1mbErr_6.1 := 0.02e-4;
+a2mbErr_6.1 := -0.45e-4;
+a3mbErr_6.1 := -0.27e-4;
+
+//sup 2
+
+// M14
+b1maErr_2.2 := -0.01e-4;
+b2maErr_2.2 := 8.09e-4;
+b3maErr_2.2 := 0.13e-4;
+a1maErr_2.2 := 1.97e-4;
+a2maErr_2.2 := -0.41e-4;
+a3maErr_2.2 := 0.37e-4;
+
+// M38
+b1mbErr_2.2 := 0.04e-4;
+b2mbErr_2.2 := 8.63e-4;
+b3mbErr_2.2 := 0.22e-4;
+a1mbErr_2.2 := 0.46e-4;
+a2mbErr_2.2 := 0.04e-4;
+a3mbErr_2.2 := -0.42e-4;
+
+// M08
+b1maErr_3.2 := -0.49e-4;
+b2maErr_3.2 := 8.26e-4;
+b3maErr_3.2 := -0.02e-4;
+a1maErr_3.2 := 1.42e-4;
+a2maErr_3.2 := -0.31e-4;
+a3maErr_3.2 := 0.21e-4;
+
+// M29
+b1mbErr_3.2 := 0.18e-4;
+b2mbErr_3.2 := 7.43e-4;
+b3mbErr_3.2 := 0.00e-4;
+b1mbErr_3.2 := -1.31e-4;
+b2mbErr_3.2 := 0.84e-4;
+b3mbErr_3.2 := -0.63e-4;
+
+// M42
+b1maErr_4.2 := 0.92e-4;
+b2maErr_4.2 := 8.55e-4;
+b3maErr_4.2 := 0.07e-4;
+a1maErr_4.2 := -1.51e-4;
+a2maErr_4.2 := -0.72e-4;
+a3maErr_4.2 := -0.35e-4;
+
+// M18
+b1mbErr_4.2 := -0.45e-4;
+b2mbErr_4.2 := 9.20e-4;
+b3mbErr_4.2 := 0.18e-4;
+a1mbErr_4.2 := -0.95e-4;
+a2mbErr_4.2 := -1.31e-4;
+a3mbErr_4.2 := -0.58e-4;
+
+// M45
+b1maErr_5.2 := 0.19e-4;
+b2maErr_5.2 := 8.18e-4;
+b3maErr_5.2 := 0.20e-4;
+a1maErr_5.2 := 0.16e-4;
+a2maErr_5.2 := 0.30e-4;
+a3maErr_5.2 := -0.10e-4;
+
+// M26
+b1mbErr_5.2 := -0.07e-4;
+b2mbErr_5.2 := 8.59e-4;
+b3mbErr_5.2 := 0.12e-4;
+a1mbErr_5.2 := -1.14e-4;
+a2mbErr_5.2 := -0.23e-4;
+a3mbErr_5.2 := -0.33e-4;
+
+// M25
+b1maErr_6.2 := -0.19e-4;
+b2maErr_6.2 := 8.18e-4;
+b3maErr_6.2 := 0.40e-4;
+a1maErr_6.2 := -1.17e-4;
+a2maErr_6.2 := 0.35e-4;
+a3maErr_6.2 := -0.39e-4;
+
+// M10
+b1mbErr_6.2 := 0.12e-4;
+b2mbErr_6.2 := 8.13e-4;
+b3mbErr_6.2 := 0.01e-4;
+a1mbErr_6.2 := 1.26e-4;
+a2mbErr_6.2 := 0.05e-4;
+a3mbErr_6.2 := 0.59e-4;
+
+//sup 3
+
+// M07
+b1maErr_2.3 := 0.26e-4;
+b2maErr_2.3 := 7.61e-4;
+b3maErr_2.3 := 0.09e-4;
+a1maErr_2.3 := -0.48e-4; 
+a2maErr_2.3 := -0.16e-4;
+a3maErr_2.3 := -0.39e-4;
+
+// M40
+b1mbErr_2.3 := 0.06e-4;
+b2mbErr_2.3 := 9.52e-4;
+b3mbErr_2.3 := 0.16e-4;
+a1mbErr_2.3 := -0.30e-4;
+a2mbErr_2.3 := -0.15e-4;
+a3mbErr_2.3 := -0.10e-4;
+
+// M12
+b1maErr_3.3 := 0.61e-4;
+b2maErr_3.3 := 7.75e-4;
+b3maErr_3.3 := 0.04e-4;
+a1maErr_3.3 := 0.33e-4;
+a2maErr_3.3 := -0.48e-4;
+a3maErr_3.3 := -0.05e-4;
+
+// M37
+b1mbErr_3.3 := -0.02e-4;
+b2mbErr_3.3 := 8.45e-4;
+b3mbErr_3.3 := 0.51e-4;
+a1mbErr_3.3 := -0.80e-4;
+a2mbErr_3.3 := -0.71e-4;
+a3mbErr_3.3 := -0.37e-4;
+
+// M11
+b1maErr_4.3 := 0.91e-4;
+b2maErr_4.3 := 8.63e-4;
+b3maErr_4.3 := 0.32e-4;
+a1maErr_4.3 := 0.11e-4;
+a2maErr_4.3 := 1.18e-4;
+a3maErr_4.3 := -0.02e-4;
+
+// M31
+b1mbErr_4.3 := -0.38e-4;
+b2mbErr_4.3 := 9.62e-4;
+b3mbErr_4.3 := 0.22e-4;
+a1mbErr_4.3 := 0.84e-4;
+a2mbErr_4.3 := 0.08e-4;
+a3mbErr_4.3 := -0.04e-4;
+
+// M02
+b1maErr_5.3 := -0.61e-4;
+b2maErr_5.3 := 8.10e-4;
+b3maErr_5.3 := -0.23e-4;
+a1maErr_5.3 := -0.37e-4;
+a2maErr_5.3 := 0.54e-4;
+a3maErr_5.3 := 0.23e-4;
+
+// M32
+b1mbErr_5.3 := 1.27e-4;
+b2mbErr_5.3 := 9.12e-4;
+b3mbErr_5.3 := 0.14e-4;
+a1mbErr_5.3 := -0.11e-4;
+a2mbErr_5.3 := -0.63e-4;
+a3mbErr_5.3 := -0.23e-4;
+
+// M24
+b1maErr_6.3 := 0.17e-4;
+b2maErr_6.3 := 9.37e-4;
+b3maErr_6.3 := 0.75e-4;
+a1maErr_6.3 := -0.74e-4;
+a2maErr_6.3 := -2.18e-4;
+a3maErr_6.3 := -0.30e-4;
+
+// M15
+b1mbErr_6.3 := -0.27e-4;
+b2mbErr_6.3 := 9.39e-4;
+b3mbErr_6.3 := 0.41e-4;
+a1mbErr_6.3 := -1.86e-4;
+a2mbErr_6.3 := 0.22e-4;
+a3mbErr_6.3 := -0.61e-4;
+
+//sup 4
+
+// M01
+b1maErr_2.4 := -0.04e-4;
+b2maErr_2.4 := 8.35e-4;
+b3maErr_2.4 := -0.10e-4;
+a1maErr_2.4 := -0.99e-4;
+a2maErr_2.4 := -0.78e-4;
+a3maErr_2.4 := -0.25e-4;
+
+// M16
+b1mbErr_2.4 := -1.18e-4;
+b2mbErr_2.4 := 8.90e-4;
+b3mbErr_2.4 := 0.34e-4;
+a1mbErr_2.4 := -1.46e-4;
+a2mbErr_2.4 := 1.80e-4;
+a3mbErr_2.4 := -0.18e-4;
+
+// M44
+b1maErr_3.4 := 0.97e-4;
+b2maErr_3.4 := 8.84e-4;
+b3maErr_3.4 := -0.07e-4;
+a1maErr_3.4 := 0.38e-4;
+a2maErr_3.4 := 0.75e-4;
+a3maErr_3.4 := 0.90e-4;
+
+// M22
+b1mbErr_3.4 := 0.10e-4;
+b2mbErr_3.4 := 9.06e-4;
+b3mbErr_3.4 := 0.31e-4;
+a1mbErr_3.4 := -1.18e-4;
+a2mbErr_3.4 := -0.57e-4;
+a3mbErr_3.4 := -0.39e-4;
+
+// M03
+b1maErr_4.4 := 0.69e-4;
+b2maErr_4.4 := 7.55e-4;
+b3maErr_4.4 := 0.19e-4;
+a1maErr_4.4 := -1.39e-4;
+a2maErr_4.4 := 1.05e-4;
+a3maErr_4.4 := -0.50e-4;
+
+// M09
+b1mbErr_4.4 := 0.71e-4;
+b2mbErr_4.4 := 8.18e-4;
+b3mbErr_4.4 := 0.01e-4;
+a1mbErr_4.4 := 0.51e-4;
+a2mbErr_4.4 := 0.52e-4;
+a3mbErr_4.4 := -0.04e-4;
+
+// M20
+b1maErr_5.4 := 0.04e-4;
+b2maErr_5.4 := 9.50e-4;
+b3maErr_5.4 := 0.57e-4;
+a1maErr_5.4 := -0.22e-4;
+a2maErr_5.4 := -0.59e-4;
+a3maErr_5.4 := -0.19e-4;
+
+// M39
+b1mbErr_5.4 := -0.10e-4;
+b2mbErr_5.4 := 8.53e-4;
+b3mbErr_5.4 := 0.20e-4;
+a1mbErr_5.4 := -1.46e-4;
+a2mbErr_5.4 := 0.93e-4;
+a3mbErr_5.4 := -0.11e-4;
+
+// M28
+b1maErr_6.4 := 0.91e-4;
+b2maErr_6.4 := 9.18e-4;
+b3maErr_6.4 := 0.55e-4;
+a1maErr_6.4 := -1.16e-4;
+a2maErr_6.4 := -0.24e-4;
+a3maErr_6.4 := -0.62e-4;
+
+// M33
+b1mbErr_6.4 := -0.09e-4;
+b2mbErr_6.4 := 8.35e-4;
+b3mbErr_6.4 := 0.24e-4;
+a1mbErr_6.4 := -1.61e-4;
+a2mbErr_6.4 := 0.71e-4;
+a3mbErr_6.4 := -0.90e-4;
+
+return;

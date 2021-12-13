@@ -6,10 +6,10 @@ import os
 
 class Parser():
     @classmethod
-    def generate_ring_data(cls, file):
+    def generate_ring_data(cls, file_path):
         madx = Madx()
         try:
-            madx.call(file = 'booster.madx')
+            madx.call(file = file_path)
         except Exception:
             print(Exception)
         

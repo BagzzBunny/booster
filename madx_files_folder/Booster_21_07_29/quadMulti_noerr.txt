@@ -1,0 +1,393 @@
+//sup 1
+
+// DL-10:
+
+b2qdErr_1.1:= 0;   
+b3qdErr_1.1:= 0;
+b5qdErr_1.1:= 0;
+a2qdErr_1.1:= 0;
+a3qdErr_1.1:= 0;
+a5qdErr_1.1:= 0;
+
+b2qfErr_1.1:= 0;   
+b3qfErr_1.1:= 0;
+b5qfErr_1.1:= 0;
+a2qfErr_1.1:= 0;
+a3qfErr_1.1:= 0;
+a5qfErr_1.1:= 0;
+//----------------------
+// DL-08:
+
+b2qdErr_2.1:= 0;   
+b3qdErr_2.1:= 0;
+b5qdErr_2.1:= 0;
+a2qdErr_2.1:= 0;   
+a3qdErr_2.1:= 0;
+a5qdErr_2.1:= 0;
+
+b2qfErr_2.1:= 0;   
+b3qfErr_2.1:= 0;
+b5qfErr_2.1:= 0;
+a2qfErr_2.1:= 0;   
+a3qfErr_2.1:= 0;
+a5qfErr_2.1:= 0;
+//----------------------
+// DL-04:
+
+b2qdErr_3.1:= 0;   
+b3qdErr_3.1:= 0;
+b5qdErr_3.1:= 0;
+a2qdErr_3.1:= 0;   
+a3qdErr_3.1:= 0;
+a5qdErr_3.1:= 0;
+
+b2qfErr_3.1:= 0;   
+b3qfErr_3.1:= 0;
+b5qfErr_3.1:= 0;
+a2qfErr_3.1:= 0;   
+a3qfErr_3.1:= 0;
+a5qfErr_3.1:= 0;
+//----------------------
+// DL-20:
+
+b2qdErr_4.1:= 0;   
+b3qdErr_4.1:= 0;
+b5qdErr_4.1:= 0;
+a2qdErr_4.1:= 0;   
+a3qdErr_4.1:= 0;
+a5qdErr_4.1:= 0;
+
+b2qfErr_4.1:= 0;   
+b3qfErr_4.1:= 0;
+b5qfErr_4.1:= 0;
+a2qfErr_4.1:= 0;   
+a3qfErr_4.1:= 0;
+a5qfErr_4.1:= 0;
+//----------------------
+// DL-01:
+
+b2qdErr_5.1:= 0;   
+b3qdErr_5.1:= 0;
+b5qdErr_5.1:= 0;
+a2qdErr_5.1:= 0;   
+a3qdErr_5.1:= 0;
+a5qdErr_5.1:= 0;
+
+b2qfErr_5.1:= 0;   
+b3qfErr_5.1:= 0;
+b5qfErr_5.1:= 0;
+a2qfErr_5.1:= 0;   
+a3qfErr_5.1:= 0;
+a5qfErr_5.1:= 0;
+//----------------------
+// DL-05:
+
+b2qdErr_6.1:= 0;   
+b3qdErr_6.1:= 0;
+b5qdErr_6.1:= 0;
+a2qdErr_6.1:= 0;   
+a3qdErr_6.1:= 0;
+a5qdErr_6.1:= 0;
+
+b2qfErr_6.1:= 0;   
+b3qfErr_6.1:= 0;
+b5qfErr_6.1:= 0;
+a2qfErr_6.1:= 0;   
+a3qfErr_6.1:= 0;
+a5qfErr_6.1:= 0;
+
+//sup 2
+
+// DL-09:
+
+b2qdErr_1.2:= 0;   
+b3qdErr_1.2:= 0;
+b5qdErr_1.2:= 0;
+a2qdErr_1.2:= 0;   
+a3qdErr_1.2:= 0;
+a5qdErr_1.2:= 0;
+
+b2qfErr_1.2:= 0;   
+b3qfErr_1.2:= 0;
+b5qfErr_1.2:= 0;
+a2qfErr_1.2:= 0;   
+a3qfErr_1.2:= 0;
+a5qfErr_1.2:= 0;
+//----------------------
+// DL-07:
+
+b2qdErr_2.2:= 0;   
+b3qdErr_2.2:= 0;
+b5qdErr_2.2:= 0;
+a2qdErr_2.2:= 0;   
+a3qdErr_2.2:= 0;
+a5qdErr_2.2:= 0;
+
+b2qfErr_2.2:= 0;   
+b3qfErr_2.2:= 0;
+b5qfErr_2.2:= 0;
+a2qfErr_2.2:= 0;   
+a3qfErr_2.2:= 0;
+a5qfErr_2.2:= 0;
+//----------------------
+// DL-22:
+
+b2qdErr_3.2:= 0;   
+b3qdErr_3.2:= 0;
+b5qdErr_3.2:= 0;
+a2qdErr_3.2:= 0;   
+a3qdErr_3.2:= 0;
+a5qdErr_3.2:= 0;
+
+b2qfErr_3.2:= 0;   
+b3qfErr_3.2:= 0;
+b5qfErr_3.2:= 0;
+a2qfErr_3.2:= 0;   
+a3qfErr_3.2:= 0;
+a5qfErr_3.2:= 0;
+//----------------------
+// DL-15:
+
+b2qdErr_4.2:= 0;   
+b3qdErr_4.2:= 0;
+b5qdErr_4.2:= 0;
+a2qdErr_4.2:= 0;   
+a3qdErr_4.2:= 0;
+a5qdErr_4.2:= 0;
+
+b2qfErr_4.2:= 0;   
+b3qfErr_4.2:= 0;
+b5qfErr_4.2:= 0;
+a2qfErr_4.2:= 0;   
+a3qfErr_4.2:= 0;
+a5qfErr_4.2:= 0;
+//----------------------
+// DL-17:
+
+b2qdErr_5.2:= 0;   
+b3qdErr_5.2:= 0;
+b5qdErr_5.2:= 0;
+a2qdErr_5.2:= 0;   
+a3qdErr_5.2:= 0;
+a5qdErr_5.2:= 0;
+
+b2qfErr_5.2:= 0;   
+b3qfErr_5.2:= 0;
+b5qfErr_5.2:= 0;
+a2qfErr_5.2:= 0;   
+a3qfErr_5.2:= 0;
+a5qfErr_5.2:= 0;
+//----------------------
+// DL-03:
+
+b2qdErr_6.2:= 0;   
+b3qdErr_6.2:= 0;
+b5qdErr_6.2:= 0;
+a2qdErr_6.2:= 0;   
+a3qdErr_6.2:= 0;
+a5qdErr_6.2:= 0;
+
+b2qfErr_6.2:= 0;   
+b3qfErr_6.2:= 0;
+b5qfErr_6.2:= 0;
+a2qfErr_6.2:= 0;   
+a3qfErr_6.2:= 0;
+a5qfErr_6.2:= 0;
+
+//sup 3
+
+// DL-21:
+
+b2qdErr_1.3:= 0;   
+b3qdErr_1.3:= 0;
+b5qdErr_1.3:= 0;
+a2qdErr_1.3:= 0;   
+a3qdErr_1.3:= 0;
+a5qdErr_1.3:= 0;
+
+b2qfErr_1.3:= 0;   
+b3qfErr_1.3:= 0;
+b5qfErr_1.3:= 0;
+a2qfErr_1.3:= 0;   
+a3qfErr_1.3:= 0;
+a5qfErr_1.3:= 0;
+//----------------------
+// DL-11:
+
+b2qdErr_2.3:= 0;   
+b3qdErr_2.3:= 0;
+b5qdErr_2.3:= 0;
+a2qdErr_2.3:= 0;   
+a3qdErr_2.3:= 0;
+a5qdErr_2.3:= 0;
+
+b2qfErr_2.3:= 0;   
+b3qfErr_2.3:= 0;
+b5qfErr_2.3:= 0;
+a2qfErr_2.3:= 0;   
+a3qfErr_2.3:= 0;
+a5qfErr_2.3:= 0;
+//----------------------
+// DL-02:
+
+b2qdErr_3.3:= 0;   
+b3qdErr_3.3:= 0;
+b5qdErr_3.3:= 0;
+a2qdErr_3.3:= 0;   
+a3qdErr_3.3:= 0;
+a5qdErr_3.3:= 0;
+
+b2qfErr_3.3:= 0;   
+b3qfErr_3.3:= 0;
+b5qfErr_3.3:= 0;
+a2qfErr_3.3:= 0;   
+a3qfErr_3.3:= 0;
+a5qfErr_3.3:= 0;
+//----------------------
+// DL-14:
+
+b2qdErr_4.3:= 0;   
+b3qdErr_4.3:= 0;
+b5qdErr_4.3:= 0;
+a2qdErr_4.3:= 0;   
+a3qdErr_4.3:= 0;
+a5qdErr_4.3:= 0;
+
+b2qfErr_4.3:= 0;   
+b3qfErr_4.3:= 0;
+b5qfErr_4.3:= 0;
+a2qfErr_4.3:= 0;   
+a3qfErr_4.3:= 0;
+a5qfErr_4.3:= 0;
+//----------------------
+// DL-18:
+
+b2qdErr_5.3:= 0;   
+b3qdErr_5.3:= 0;
+b5qdErr_5.3:= 0;
+a2qdErr_5.3:= 0;   
+a3qdErr_5.3:= 0;
+a5qdErr_5.3:= 0;
+
+b2qfErr_5.3:= 0;   
+b3qfErr_5.3:= 0;
+b5qfErr_5.3:= 0;
+a2qfErr_5.3:= 0;   
+a3qfErr_5.3:= 0;
+a5qfErr_5.3:= 0;
+//----------------------
+// DL-26:
+
+b2qdErr_6.3:= 0;   
+b3qdErr_6.3:= 0;
+b5qdErr_6.3:= 0;
+a2qdErr_6.3:= 0;   
+a3qdErr_6.3:= 0;
+a5qdErr_6.3:= 0;
+
+b2qfErr_6.3:= 0;   
+b3qfErr_6.3:= 0;
+b5qfErr_6.3:= 0;
+a2qfErr_6.3:= 0;   
+a3qfErr_6.3:= 0;
+a5qfErr_6.3:= 0;
+
+//sup 4
+
+// DL-28:
+
+b2qdErr_1.4:= 0;   
+b3qdErr_1.4:= 0;
+b5qdErr_1.4:= 0;
+a2qdErr_1.4:= 0;   
+a3qdErr_1.4:= 0;
+a5qdErr_1.4:= 0;
+
+b2qfErr_1.4:= 0;   
+b3qfErr_1.4:= 0;
+b5qfErr_1.4:= 0;
+a2qfErr_1.4:= 0;   
+a3qfErr_1.4:= 0;
+a5qfErr_1.4:= 0;
+//----------------------
+// DL-06:
+
+b2qdErr_2.4:= 0;   
+b3qdErr_2.4:= 0;
+b5qdErr_2.4:= 0;
+a2qdErr_2.4:= 0;   
+a3qdErr_2.4:= 0;
+a5qdErr_2.4:= 0;
+
+b2qfErr_2.4:= 0;   
+b3qfErr_2.4:= 0;
+b5qfErr_2.4:= 0;
+a2qfErr_2.4:= 0;   
+a3qfErr_2.4:= 0;
+a5qfErr_2.4:= 0;
+//----------------------
+// DL-16:
+
+b2qdErr_3.4:= 0;   
+b3qdErr_3.4:= 0;
+b5qdErr_3.4:= 0;
+a2qdErr_3.4:= 0;   
+a3qdErr_3.4:= 0;
+a5qdErr_3.4:= 0;
+
+b2qfErr_3.4:= 0;   
+b3qfErr_3.4:= 0;
+b5qfErr_3.4:= 0;
+a2qfErr_3.4:= 0;   
+a3qfErr_3.4:= 0;
+a5qfErr_3.4:= 0;
+//----------------------
+// DL-24:
+
+b2qdErr_4.4:= 0;   
+b3qdErr_4.4:= 0;
+b5qdErr_4.4:= 0;
+a2qdErr_4.4:= 0;   
+a3qdErr_4.4:= 0;
+a5qdErr_4.4:= 0;
+
+b2qfErr_4.4:= 0;   
+b3qfErr_4.4:= 0;
+b5qfErr_4.4:= 0;
+a2qfErr_4.4:= 0;   
+a3qfErr_4.4:= 0;
+a5qfErr_4.4:= 0;
+//----------------------
+// DL-19:
+
+b2qdErr_5.4:= 0;   
+b3qdErr_5.4:= 0;
+b5qdErr_5.4:= 0;
+a2qdErr_5.4:= 0;   
+a3qdErr_5.4:= 0;
+a5qdErr_5.4:= 0;
+
+b2qfErr_5.4:= 0;   
+b3qfErr_5.4:= 0;
+b5qfErr_5.4:= 0;
+a2qfErr_5.4:= 0;   
+a3qfErr_5.4:= 0;
+a5qfErr_5.4:= 0;
+//----------------------
+// DL-13:
+
+b2qdErr_6.4:= 0;   
+b3qdErr_6.4:= 0;
+b5qdErr_6.4:= 0;
+a2qdErr_6.4:= 0;   
+a3qdErr_6.4:= 0;
+a5qdErr_6.4:= 0;
+
+b2qfErr_6.4:= 0;   
+b3qfErr_6.4:= 0;
+b5qfErr_6.4:= 0;
+a2qfErr_6.4:= 0;   
+a3qfErr_6.4:= 0;
+a5qfErr_6.4:= 0;
+
+return;

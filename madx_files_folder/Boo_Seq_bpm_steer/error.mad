@@ -1,0 +1,36 @@
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!--------------SET ERRORS (INT+ALLIGN)-------------------
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+err_rel0 := 0 + 7.344562671e-4 * gauss();	// inj = 0 + 7.344562671e-4 * gauss(), ext = 0 + 5.578348208e-4 * gauss();
+err_rel1 := 0 + 7.344562671e-4 * gauss();	// inj = 0 + 7.344562671e-4 * gauss(), ext = 0 + 23.42998146e-4 * gauss();
+// 5.0e-4* gauss() Relative error of dipole component of magnetic field (spread of dipoles' effectife length)
+
+SELECT, FLAG = error;
+
+//ESAVE, FILE = initial_errors.txt;						// Control initial errors in ring
+
+SELECT, FLAG = error, clear;
+SELECT, FLAG = error, CLASS = SBEND;					// Begin of the Dipole errors module
+
+EOPTION, seed = 11122011, add = true;
+
+radi = Rref;											// Reference radius where above relative errors are specified
+
+EFCOMP, order = 0, radius = radi, DKNR := {err_rel0, 0, 0, 0};
+
+EALIGN, dx := 0, dy := 0, dpsi := -1.276e-3 + 1.683e-3 * gauss();	// inj: dpsi := -1.276e-3 + 1.683e-3 * gauss(), ext: dpsi := -1.223e-3 + 1.627e-3 * gauss()
+
+//ESAVE, FILE = sbends_errors_classic.txt; 				// Dipole errors control
+
+SELECT, FLAG = error, clear;							// Finish of the Dipole errors module
+
+SELECT, FLAG = error, CLASS = QUADRUPOLE;				// Begin of the Quadrupole errors module
+EFCOMP, order = 1, radius = radi, DKNR: = {0, err_rel1, 0, 0};
+
+EALIGN, dx := 0.0001 * gauss(), dy := 0.0001 * gauss(), dpsi := 0.00001 * gauss();				// dx := 0.0001 * gauss(), dy := 0.0001 * gauss(), dpsi := 1.0e-4 * gauss();   
+
+SELECT, FLAG = error, full;								// Select all errors in the ring
+ESAVE, FILE = final_errors.txt;							// Control final errors in the ring
+
+return;
